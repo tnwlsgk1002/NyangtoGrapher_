@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.nyangtographer.android.nyangtographer.MainViewModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_stage_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_stage_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/fl_stage_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="3"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom" />
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_stage_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom" />
+                </FrameLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_stage_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="5"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_5"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/fl_stage_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/ic_cat_paw"></ImageView>
+
+                <FrameLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:paddingStart="45dp"
+                    android:paddingTop="58dp">
+
+                    <TextView
+                        android:id="@+id/tv_stage_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum_square_round_eb"
+                        android:text="6"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/iv_stage_6"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/ic_lock"
+                        android:gravity="bottom" />
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

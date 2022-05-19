@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_baseline_keyboard_return_24.xml" value="0.134" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_undo.xml" value="0.1" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/font/font.xml" value="0.1" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_intro.xml" value="0.33" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_main.xml" value="0.2208398133748056" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/blank_fragment.xml" value="1.0" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/challenge_fragment.xml" value="0.35" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/dialog_camera_or_gallery.xml" value="0.67" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/dialog_custom_progress.xml" value="0.2630208333333333" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/dialog_game_result.xml" value="0.3622448979591837" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/dialog_get_image.xml" value="0.5" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/fragment_challenge.xml" value="0.33" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/fragment_select_photo.xml" value="0.5" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/fragment_select_stage_record.xml" value="0.46510416666666665" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/fragment_stage.xml" value="0.33" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/item_recycler_photo.xml" value="0.67" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/item_recycler_stage_record.xml" value="0.30625" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/main_activity.xml" value="0.46510416666666665" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/main_fragment.xml" value="0.39114583333333336" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/recycler_photo.xml" value="0.1" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/select_photo_fragment.xml" value="0.46510416666666665" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2645" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/xml/path.xml" value="0.3875" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/test/java/kr/co/nyangtographer/android/nyangtographer/layout/fragment_select_stage_record.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

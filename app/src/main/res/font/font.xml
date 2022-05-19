@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font android:font="@font/the_oegyeinseolmyeongseo"></font>
+    <font android:font="@font/goyang"></font>
+    <font android:font="@font/bmuua"></font>
+    <font android:font="@font/nanum_square_aceb"></font>
+    <font android:font="@font/thefaceshop_inklopquid"></font>
+    <font android:font="@font/nanum_square_round_eb"></font>
+</font-family>

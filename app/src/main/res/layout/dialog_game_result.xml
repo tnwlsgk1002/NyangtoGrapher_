@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/rounded_corners_100">
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/MainText"
+            android:text="미션 성공!!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/tv_score"
+            style="@style/MainText"
+            android:text="00점"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/iv_user_img"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_undo_select_stage_record"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="돌아 가기"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/nanum_square_round_eb"
+            android:background="@drawable/basic_button">
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+</layout>
