@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var currentFragmentNumber: Int? = 1 // 현재 프레그먼트
-    val REQUEST_IMAGE_CAPTURE = 1
     val REQUEST_TAKE_PHOTO = 1
     lateinit var mCameraPhotoPath: String
 
@@ -92,10 +91,11 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK && result.data != null) {
                 var challengeImg: Bitmap? = null
+                println("openGalleryLauncher")
                 challengeImg =
                     MediaStore.Images.Media.getBitmap(this.contentResolver, result.data?.data)
                 lifecycleScope.launch(Dispatchers.IO) {
-                        val record = mainViewModel.clickRecord?.value?.let{
+                        mainViewModel.clickRecord?.value?.let{
                         val id = it.id
                         val answerId = it.answer_id
                         val stageNumber = it.stage_number

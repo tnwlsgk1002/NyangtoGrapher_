@@ -2,16 +2,18 @@
 <layout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/rounded_corners_100">
+        android:background="@drawable/dialog_background">
 
         <TextView
-            android:text="카메라 혹은 갤러리 중 선택"
+            android:text="사진 선택"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"/>
+            android:fontFamily="@font/bmuua"
+            android:gravity="center"
+            android:textSize="30sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_select_camera"

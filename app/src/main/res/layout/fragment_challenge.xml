@@ -21,6 +21,7 @@
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:src="@drawable/ic_explan_cat"
+                android:background="@color/earth"
                 android:scaleType="fitCenter"/>
             <ImageView
                 android:id="@+id/iv_challenge_img"
@@ -28,6 +29,7 @@
                 android:layout_height="180dp"
                 android:layout_marginStart="10dp"
                 android:src="@drawable/ic_explan_cat"
+                android:background="@color/earth"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
 

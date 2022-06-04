@@ -2,10 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/rounded_corners_100">
+        android:background="@drawable/dialog_background">
 
         <TextView
             android:id="@+id/tv_result"
@@ -13,6 +13,7 @@
             android:text="미션 성공!!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/bmuua"
             android:gravity="center"
             android:textSize="30sp"/>
 
@@ -20,7 +21,7 @@
             android:id="@+id/tv_score"
             style="@style/MainText"
             android:text="00점"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -28,9 +29,11 @@
 
         <ImageView
             android:id="@+id/iv_user_img"
-            android:layout_marginTop="20dp"
+            android:scaleType="centerInside"
+            android:layout_marginTop="10dp"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:background="@color/earth"
         />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_undo_select_stage_record"
