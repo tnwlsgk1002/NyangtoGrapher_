@@ -33,19 +33,14 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-//enum class CatTalk(
-//    val talk : String
-//) {
-//    SelectStage("집사, 스테이지를 선택해라냥."),
-//    SelectRecord("도전하고 사진을 선택해라냥."),
-//    ClickChallenge("")
-//}
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     var currentFragmentNumber: Int? = 1 // 현재 프레그먼트
+
     val REQUEST_TAKE_PHOTO = 1
+
     lateinit var mCameraPhotoPath: String
 
     private lateinit var mainViewModel: MainViewModel
@@ -71,9 +66,10 @@ class MainActivity : AppCompatActivity() {
                 val permissionName = it.key
                 val isGranted = it.value
                 if (isGranted) { // 승인했을 경우
-                    val pickIntent =
-                        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    openGalleryLauncher.launch(pickIntent)
+                    if (permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
+                        val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                        openGalleryLauncher.launch(pickIntent)
+                    }
                 } else { // 승인하지 않았을 경우
                     if (permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
                         Toast.makeText(
@@ -87,12 +83,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-    private val openGalleryLauncher: ActivityResultLauncher<Intent> =
+    val openGalleryLauncher:ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK && result.data != null) {
-                var challengeImg: Bitmap? = null
-                println("openGalleryLauncher")
-                challengeImg =
+                var challengeImg: Bitmap? =
                     MediaStore.Images.Media.getBitmap(this.contentResolver, result.data?.data)
                 lifecycleScope.launch(Dispatchers.IO) {
                         mainViewModel.clickRecord?.value?.let{
@@ -120,91 +114,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-    // 절대경로 변환
-    fun absolutelyPath(path: Uri): String? {
-
-        var proj: Array<String> = arrayOf(MediaStore.Images.Media.DATA)
-        var c: Cursor? = contentResolver.query(path, proj, null, null, null)
-        var index = c?.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-        c?.moveToFirst()
-
-        var result = index?.let { c?.getString(it) }
-
-        return result
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val selectStageFragment = SelectStageFragment()
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        binding.activity = this
-
-        replaceSelectStageFragment()
-
-        binding.tvUndo.setOnClickListener {
-            undoFragment()
-        }
-
-        mainViewModel =
-            ViewModelProvider(
-                this,
-                MainViewModelFactory((application as NyangApplication).repository)
-            )
-                .get(MainViewModel::class.java)
-
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (currentFragmentNumber == 1) finish()
-        else if (currentFragmentNumber == 2) {
-            currentFragmentNumber = 1
-            binding.tvTalk.text = "집사, 스테이지를 선택해라냥."
-        } else if (currentFragmentNumber == 3) {
-            currentFragmentNumber = 2
-            binding.tvTalk.text = "도전하고 싶은 사진을 선택해라냥."
-        }
-    }
-
-    private fun undoFragment() {
-        onBackPressed()
-    }
-
-    fun replaceSelectStageFragment() {
-        val transaction = supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.fl_center,
-                SelectStageFragment()
-            )
-            .addToBackStack(null)
-            .commit()
-        currentFragmentNumber = 1
-        binding.tvTalk.text = "집사, 스테이지를 선택해라냥."
-    }
-
-    fun replaceSelectStageRecordFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_center, SelectStageRecordFragment())
-            .addToBackStack(null)
-            .commit() // 포토 선택 화면으로 교체
-        supportFragmentManager.executePendingTransactions()
-        currentFragmentNumber = 2
-        binding.tvTalk.text = "도전하고 싶은 사진을 선택해라냥."
-        //(supportFragmentManager.findFragmentById(R.id.fl_center) as SelectStageRecordFragment).initRecyclerView()
-    }
-
-    fun replaceChallengeFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_center, ChallengeFragment())
-            .addToBackStack(null)
-            .commit()
-        supportFragmentManager.executePendingTransactions()
-        currentFragmentNumber = 3
-        binding.tvTalk.text = "선택한 사진으로 하고 싶으면\n 도전을, 아니면 다시 선택해라냥"
-    }
 
     // 권한 확인 후 카메라 실행, 사진 받아옴
     private fun selectCamera() {
@@ -267,7 +176,7 @@ class MainActivity : AppCompatActivity() {
                 this, Manifest.permission.READ_EXTERNAL_STORAGE
             )
         ) {
-            showRationableDialog("냥토그래퍼", "냥토그래퍼" + "앱은 갤러리 권한 요청을 필요로 합니다.")
+            showRationableDialog(getString(R.string.app_korean_name), getString(R.string.app_korean_name) + "앱은 갤러리 권한 요청을 필요로 합니다.")
         } else {
             galleryResultLauncher.launch(
                 arrayOf(
@@ -298,6 +207,19 @@ class MainActivity : AppCompatActivity() {
         return result == PackageManager.PERMISSION_GRANTED // PERMISSION_GRANTED = 0
     }
 
+    // 절대경로 변환
+    fun absolutelyPath(path: Uri): String? {
+
+        var proj: Array<String> = arrayOf(MediaStore.Images.Media.DATA)
+        var c: Cursor? = contentResolver.query(path, proj, null, null, null)
+        var index = c?.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        c?.moveToFirst()
+
+        var result = index?.let { c?.getString(it) }
+
+        return result
+    }
+
     // 카메라 혹은 갤러리 선택 다이얼로그 띄우기
     fun showGetImageDialog() {
         val dialog = Dialog(this)
@@ -305,7 +227,6 @@ class MainActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.dialog_get_image)
         // 카메라 선택 시
         dialog.findViewById<Button>(R.id.btn_select_camera).setOnClickListener {
-            // TODO : 권한 확인 후 카메라에서 사진찍고 가지고 오기
             selectCamera()
             dialog.dismiss()
         }
@@ -343,5 +264,88 @@ class MainActivity : AppCompatActivity() {
         customProgressDialog?.setContentView(R.layout.dialog_custom_progress)
 
         customProgressDialog?.show()
+    }
+
+    fun showHelpDialog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_help)
+        dialog.findViewById<Button>(R.id.btn_dialog_dismiss).setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val selectStageFragment = SelectStageFragment()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.activity = this
+
+        replaceSelectStageFragment()
+
+        binding.tvUndo.setOnClickListener {
+            undoFragment()
+        }
+
+        binding.tvHelp.setOnClickListener {
+            showHelpDialog()
+        }
+        mainViewModel =
+            ViewModelProvider(
+                this,
+                MainViewModelFactory((application as NyangApplication).repository)
+            )
+                .get(MainViewModel::class.java)
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (currentFragmentNumber == 1) finish()
+        else if (currentFragmentNumber == 2) {
+            currentFragmentNumber = 1
+            binding.tvTalk.text = "집사, 스테이지를 선택해라냥."
+        } else if (currentFragmentNumber == 3) {
+            currentFragmentNumber = 2
+            binding.tvTalk.text = "도전하고 싶은 사진을 선택해라냥."
+        }
+    }
+
+    private fun undoFragment() {
+        onBackPressed()
+    }
+
+    fun replaceSelectStageFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fl_center,
+                SelectStageFragment()
+            )
+            .addToBackStack(null)
+            .commit()
+        currentFragmentNumber = 1
+        binding.tvTalk.text = getString(R.string.explanation_select_stage)
+    }
+
+    fun replaceSelectStageRecordFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_center, SelectStageRecordFragment())
+            .addToBackStack(null)
+            .commit() // 포토 선택 화면으로 교체
+        supportFragmentManager.executePendingTransactions()
+        currentFragmentNumber = 2
+        binding.tvTalk.text = getString(R.string.explanation_select_photo)
+        //(supportFragmentManager.findFragmentById(R.id.fl_center) as SelectStageRecordFragment).initRecyclerView()
+    }
+
+    fun replaceChallengeFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_center, ChallengeFragment())
+            .addToBackStack(null)
+            .commit()
+        supportFragmentManager.executePendingTransactions()
+        currentFragmentNumber = 3
+        binding.tvTalk.text = getString(R.string.explanation_challenge_game)
     }
 }
