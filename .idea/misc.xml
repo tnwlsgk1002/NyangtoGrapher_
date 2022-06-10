@@ -3,11 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/basic_button.xml" value="0.3035" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_baseline_keyboard_return_24.xml" value="0.134" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_info.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3035" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/ic_undo.xml" value="0.1" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/image_view_background.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/left_move.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/rounded_corners_50.xml" value="0.2735" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/rounded_corners_50_not_color.xml" value="0.2735" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/rounded_corners_50_transp_50.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable-v24/vertical_shift.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable/dialog_background.xml" value="0.3035" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3035" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/font/font.xml" value="0.1" />
-        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_intro.xml" value="0.33" />
-        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_main.xml" value="0.2208398133748056" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_intro.xml" value="0.5" />
+        <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/blank_fragment.xml" value="1.0" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/challenge_fragment.xml" value="0.35" />
         <entry key="..\:/Users/Bibidi/MyApp/NyangtoGrapher/app/src/main/res/layout/dialog_camera_or_gallery.xml" value="0.67" />

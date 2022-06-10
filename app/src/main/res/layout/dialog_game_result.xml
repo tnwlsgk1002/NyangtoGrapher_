@@ -4,16 +4,15 @@
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:orientation="vertical"
-        android:gravity="center"
         android:background="@drawable/dialog_background">
 
         <TextView
             android:id="@+id/tv_result"
-            style="@style/MainText"
+            android:layout_marginTop="40dp"
+            style="@style/DialogTitle"
             android:text="미션 성공!!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bmuua"
             android:gravity="center"
             android:textSize="30sp"/>
 
@@ -31,17 +30,19 @@
             android:id="@+id/iv_user_img"
             android:scaleType="centerInside"
             android:layout_marginTop="10dp"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:background="@color/earth"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:background="@color/dark_brown"
+            android:layout_gravity="center"
         />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_undo_select_stage_record"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:text="돌아 가기"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_brown"
             android:textSize="20sp"
             android:fontFamily="@font/nanum_square_round_eb"
             android:background="@drawable/basic_button">

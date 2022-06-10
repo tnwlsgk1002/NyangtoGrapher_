@@ -5,8 +5,12 @@
     <string name="app_korean_name">냥토그래퍼</string>
     <string name="undo_name">뒤로가기</string>
     <string name="help_name">도움말</string>
+    <string name="quest_img_name">도전할 사진</string>
+    <string name="challenge_img_name">선택한 사진</string>
     <string name="explanation_select_stage">집사, 스테이지를 선택해라냥.</string>
     <string name="explanation_select_photo">도전하고 싶은 사진을 선택해라냥.</string>
     <string name="explanation_challenge_game">선택한 사진으로 하고 싶으면\n도전을, 아니면 다시 선택해라냥</string>
-    <string name="help_contents">각 스테이지에는 도전할\n 고양이 사진들이 있다냥.\n고양이 사진을 보고\n최대한 우리집 고양이를\n비슷하게 찍어서\n80점을 넘기면 성공이다냥!\n\n그럼. 힘내라, 집사.</string>
+    <string name="help_contents_1">각 스테이지에는 도전할\n 고양이 사진들이 있다냥.\n고양이 사진을 보고\n최대한 우리집 고양이를</string>>
+    <string name="help_contents_2">비슷하게 찍어서\n80점을 넘기면 성공이다냥!</string>
+    <string name="help_contents_3">\n그럼. 힘내라, 집사.</string>
 </resources>

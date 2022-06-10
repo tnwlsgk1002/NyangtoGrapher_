@@ -15,10 +15,29 @@
     </style>
     <style name="MainText">
         <item name="android:fontFamily">@font/nanum_square_round_eb</item>
+        <item name="android:textColor">@color/dark_brown</item>
     </style>
-    <style name="OptionText" parent="MainText">
-        <item name="android:text">도움말</item>
-        <item name="android:textSize">15dp</item>
-        <item name="android:textColor">@color/earth</item>
+    <style name="MenuText" parent="MainText">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Button" parent="MainText">
+        <item name="background">@drawable/basic_button</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+    <style name="DialogTitle" parent="MainText">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/dark_brown</item>
+    </style>
+    <style name="DialogContents" parent="MainText">
+        <item name="android:fontFamily">@font/nanum_square_round_eb</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dark_brown</item>
+    </style>
+    <style name="DialogAccentContents" parent="DialogContents">
+        <item name="android:textColor">@color/pink</item>
+    </style>
+    <style name="DialogButton" parent="Button">
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>

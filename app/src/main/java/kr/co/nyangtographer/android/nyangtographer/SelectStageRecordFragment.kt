@@ -71,7 +71,6 @@ class SelectStageRecordFragment : Fragment() {
     }
 
     fun initRecyclerView() {
-        println("!!!!!!!!!!!!!!!!! initRecyclerVIew !!!!!!!!!!!!!!!!")
         mRecordDataSet = mainViewModel.clickStageRecordList!!.value!!
         mRecordAdapter!!.setDataSet(mRecordDataSet)
     }

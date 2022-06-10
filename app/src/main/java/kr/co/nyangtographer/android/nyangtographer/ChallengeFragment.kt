@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -25,8 +26,6 @@ class ChallengeFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        (activity as MainActivity).showGetImageDialog()
     }
 
     override fun onCreateView(
@@ -41,7 +40,7 @@ class ChallengeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnSelectCamera?.setOnClickListener {
-            clickReSelectButton()
+            (activity as MainActivity).showGetImageDialog()
         }
         binding?.btnSelectChallenge?.setOnClickListener {
             cilckChallengeButton()
@@ -51,19 +50,28 @@ class ChallengeFragment : Fragment() {
                 changeImageView()
             }
         )
+        binding?.ibLeftShift?.setOnClickListener{
+            clickShiftImage()
+        }
+        binding?.ibRightShift?.setOnClickListener {
+            clickShiftImage()
+        }
     }
 
     // Fragment에서 두 이미지 변경
     fun changeImageView() {
         val record = mainViewModel.clickRecord?.value
+        val title = record?.title
         val questImg = record?.quest_img
         val challengeImg = record?.challenge_img
+        binding?.tvTitle?.setText(title)
         binding?.ivQuestImg?.setImageBitmap(questImg)
         binding?.ivChallengeImg?.setImageBitmap(challengeImg)
     }
 
     // 도전을 눌렀을 때
     private fun cilckChallengeButton() {
+
         val record = mainViewModel.clickRecord?.value
         val challengeImg = record?.challenge_img
         val answerId = record?.answer_id
@@ -94,7 +102,7 @@ class ChallengeFragment : Fragment() {
     }
 
     private suspend fun updateRecord(similarity: Int, pass: Boolean) {
-        val oriRecord = mainViewModel.clickRecord?.value?.let {
+        mainViewModel.clickRecord?.value?.let {
             val id = it.id
             val answerId = it.answer_id
             val stageNumber = it.stage_number
@@ -116,8 +124,21 @@ class ChallengeFragment : Fragment() {
         }
     }
 
-    // 다시 선택 눌렀을 때 -> 카메라 혹은 갤러리 선택
-    private fun clickReSelectButton() {
-        (activity as MainActivity).showGetImageDialog()
+    private fun clickShiftImage() {
+        // 현재 사진이 도전할 사진이면
+        if (binding?.ivQuestImg?.isVisible == true) {
+            binding?.ivQuestImg?.setVisibility(View.INVISIBLE)
+            binding?.ivChallengeImg?.setVisibility(View.VISIBLE)
+            binding?.ibLeftShift?.setVisibility(View.VISIBLE)
+            binding?.ibRightShift?.setVisibility(View.INVISIBLE)
+            binding?.tvImgContext?.setText(getString(R.string.challenge_img_name))
+        }
+        else {
+            binding?.ivQuestImg?.setVisibility(View.VISIBLE)
+            binding?.ivChallengeImg?.setVisibility(View.INVISIBLE)
+            binding?.ibLeftShift?.setVisibility(View.INVISIBLE)
+            binding?.ibRightShift?.setVisibility(View.VISIBLE)
+            binding?.tvImgContext?.setText(getString(R.string.quest_img_name))
+        }
     }
 }

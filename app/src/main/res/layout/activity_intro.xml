@@ -9,7 +9,7 @@
         tools:context=".IntroActivity"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/bg_main_activity">
+        android:background="@color/background">
 
         <ImageView
             android:layout_width="300dp"
@@ -22,7 +22,7 @@
             android:layout_marginTop="20dp"
             android:text="반려묘 순간포착"
             android:textSize="20sp"
-            android:textColor="@color/earth"
+            android:textColor="@color/dark_brown"
             android:fontFamily="@font/nanum_square_round_eb"
             android:paddingHorizontal="15dp"
             android:paddingVertical="5dp"
@@ -49,7 +49,7 @@
                 android:layout_gravity="right"
                 android:text="Nyangtographer"
                 android:fontFamily="@font/thefaceshop_inklopquid"
-                android:textColor="@color/earth"
+                android:textColor="@color/dark_brown"
                 android:textSize="30sp"/>
         </LinearLayout>
 
