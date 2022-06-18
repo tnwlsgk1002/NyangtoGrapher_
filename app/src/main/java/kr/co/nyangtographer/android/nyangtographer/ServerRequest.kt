@@ -1,10 +1,7 @@
 package kr.co.nyangtographer.android.nyangtographer
 
 import android.graphics.Bitmap
-import android.graphics.Path
 import android.os.Environment
-import android.util.Log
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -14,15 +11,16 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import kotlin.time.TimeSource
 
 class ServerRequest {
     var similarity: Int = -1
     suspend fun prediction(id: Int, path: String?) {
         //통신
+        val start = System.currentTimeMillis()
         if (path != null) {
             val file = File(path)
             runBlocking {
@@ -30,10 +28,8 @@ class ServerRequest {
 
                 val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
                 val ansId = RequestBody.create("text/plain".toMediaTypeOrNull(), id.toString())
-                println("=======body : $body, ansId : $ansId============")
-                println("!!!!!!!${APIserviceImplemention.service.getRes(ansId, body)}")
                 val service = APIserviceImplemention.service.getRes(ansId, body)
-                // body 가 Multipart.Part
+
 
                 launch {
                     service.enqueue(object : Callback<SIM> {
@@ -45,7 +41,8 @@ class ServerRequest {
                             sim?.let {
                                 similarity = sim?.similar
                             }
-                            println("sim : $sim")
+                            println(">> 유사도 : $sim")
+                            println("${System.currentTimeMillis() - start}")
                         }
 
                         override fun onFailure(call: Call<SIM>, t: Throwable) {
@@ -53,11 +50,10 @@ class ServerRequest {
                             similarity = -1
                         }
                     })
-                    delay(8000)
+                    delay(1000)
                 }
             }
         }
-        //file.delete()
     }
 
     suspend fun bitmapToFile(bitmap: Bitmap, path: String): File {

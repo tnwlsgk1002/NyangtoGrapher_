@@ -11,9 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kr.co.nyangtographer.android.nyangtographer.databinding.FragmentChallengeBinding
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -79,21 +77,23 @@ class ChallengeFragment : Fragment() {
 
         if (answerId != null && challengeImg != null) {
             (activity as MainActivity).showProgressDialog()
-            lifecycleScope.launch(Dispatchers.IO) {
+            CoroutineScope(Dispatchers.IO).launch{
                 val serverRequest = ServerRequest()
-                serverRequest.prediction(answerId, imagePath)
-                var similarity: Int = serverRequest.similarity
-                var pass: Boolean = if (similarity >= PASS_SCORE) true else false
-                if (similarity == -1) {
-                    Toast.makeText(activity, "알 수 없는 에러가 발생하였습니다.", Toast.LENGTH_LONG).show()
+                val predict = async {
+                    serverRequest.prediction(answerId, imagePath)
+                    serverRequest.similarity
                 }
-                else {
-                    updateRecord(similarity, pass)
 
-                    (activity as MainActivity).runOnUiThread {
-                        (activity as MainActivity).cancelProgressDialog()
-                        (activity as MainActivity).showGameResultDialog(similarity, pass, challengeImg)
-                    }
+                val similarity = predict.await()
+                predict.await()
+
+                var pass: Boolean = if (similarity >= PASS_SCORE) true else false
+
+                updateRecord(similarity, pass)
+
+                (activity as MainActivity).runOnUiThread {
+                    (activity as MainActivity).cancelProgressDialog()
+                    (activity as MainActivity).showGameResultDialog(similarity, pass, challengeImg)
                 }
             }
         } else {
